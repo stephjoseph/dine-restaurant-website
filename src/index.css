@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  #CTA {
+    background-image: url("./images/homepage/ready-bg-mobile.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #booking-header {
+    background-image: url("./images/booking/hero-bg-mobile.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@layer utilities {
+  .selected-tab {
+    @apply relative h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C] after:absolute after:left-[8.75rem] after:block after:h-px after:w-12 after:border-b after:border-solid after:border-[#9E7F66];
+  }
+
+  .unselected-tab {
+    @apply h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C]/50;
+  }
+}
