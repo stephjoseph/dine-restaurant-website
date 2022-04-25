@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const CTA = () => {
   return (
     <section id="CTA" className="flex w-full flex-col items-center">
-      <div className="my-20 flex w-[20.438rem] flex-col items-center gap-6 text-center">
-        <h2 className="text-[2rem] font-bold leading-[2.5rem] tracking-[-0.4px] text-white">
+      <div className="my-20 flex w-[20.438rem] flex-col items-center gap-6 text-center md:my-16 md:w-[39.875rem]">
+        <h2 className="text-[2rem] font-bold leading-[2.5rem] tracking-[-0.4px] text-white md:text-[2.5rem] md:leading-[3.5rem] md:tracking-[-0.5px]">
           Ready to make a reservation?
         </h2>
         <Link

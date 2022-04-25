@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @media (min-width: 768px) {
+    body {
+      background-image: url("./images/patterns/pattern-curve-top-right.svg"),
+        url("./images/patterns/pattern-curve-top-left.svg"),
+        url("./images/patterns/pattern-curve-top-right.svg");
+      background-position: -32.313rem 68.25rem, 24rem 135.125rem,
+        -32.313rem 210.813rem;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-size: 55.938rem 20rem, 55.938rem 20rem, 55.938rem 20rem;
+    }
+  }
+}
+
 @layer components {
   #CTA {
     background-image: url("./images/homepage/ready-bg-mobile.jpg");
@@ -18,11 +32,40 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  @media (min-width: 768px) {
+    #locally-sourced::after {
+      content: "";
+      background-image: url("./images/patterns/pattern-lines.svg");
+      width: 10rem;
+      height: 4.75rem;
+      position: absolute;
+      left: 29.438rem;
+      top: 14.25rem;
+    }
+
+    #events::after {
+      content: "";
+      background-image: url("./images/patterns/pattern-lines.svg");
+      width: 10rem;
+      height: 4.75rem;
+      position: absolute;
+      left: 0rem;
+      top: -2.375rem;
+    }
+
+    #CTA {
+      background-image: url("./images/homepage/ready-bg-tablet.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 }
 
 @layer utilities {
   .selected-tab {
-    @apply relative h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C] after:absolute after:left-[8.75rem] after:block after:h-px after:w-12 after:border-b after:border-solid after:border-[#9E7F66];
+    @apply relative h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C] after:absolute after:left-[8.75rem] after:block after:h-px after:w-12 after:border-b after:border-solid after:border-[#9E7F66] md:after:top-9 md:after:left-[5.5rem];
   }
 
   .unselected-tab {
