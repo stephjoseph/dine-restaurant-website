@@ -5,7 +5,7 @@ import Booking from "./components/Booking";
 
 function App() {
   return (
-    <div className="App flex w-full max-w-[47.938rem] flex-col items-center">
+    <div className="App flex w-full max-w-[47.938rem] flex-col items-center md:max-w-[79.938rem]">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

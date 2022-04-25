@@ -1,6 +1,6 @@
 import Header from "./booking/Header";
 import Main from "./booking/Main";
-import Footer from "./home/Footer";
+import Footer from "./Footer";
 
 const Booking = () => {
   return (
