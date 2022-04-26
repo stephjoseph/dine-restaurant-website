@@ -60,6 +60,13 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+
+    #booking-header {
+      background-image: url("./images/booking/hero-bg-tablet.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 }
 
