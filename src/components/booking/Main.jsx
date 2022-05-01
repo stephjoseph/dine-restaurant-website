@@ -61,7 +61,7 @@ const Main = () => {
         </div>
         <button
           type="submit"
-          className="flex h-16 w-full items-center justify-center bg-[#111111] text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-white"
+          className="flex h-16 w-full items-center justify-center bg-[#111111] text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-white hover:border hover:border-solid hover:border-[#111111] hover:bg-white hover:text-[#111111] active:border active:border-solid active:border-[#111111] active:bg-white active:text-[#111111]"
         >
           Make Reservation
         </button>

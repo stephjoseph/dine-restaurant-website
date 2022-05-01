@@ -31,7 +31,7 @@ const Header = () => {
           the freshest produce from the comfort of our farmhouse.
         </p>
         <Link
-          className="flex h-16 w-[15.313rem] items-center justify-center border border-solid border-white bg-transparent text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white"
+          className="flex h-16 w-[15.313rem] items-center justify-center border border-solid border-white bg-transparent text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white hover:bg-white hover:text-[#111111] active:bg-white active:text-[#111111]"
           to="/booking"
         >
           Book a table

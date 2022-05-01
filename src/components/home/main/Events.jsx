@@ -91,7 +91,7 @@ const Events = () => {
         </p>
       </div>
       <Link
-        className="flex h-16 w-[15.313rem] items-center justify-center bg-[#111111] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white"
+        className="flex h-16 w-[15.313rem] items-center justify-center bg-[#111111] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white hover:border hover:border-solid hover:border-[#111111] hover:bg-white hover:text-[#111111] active:bg-white active:text-[#111111]"
         to="/booking"
       >
         Book a table
