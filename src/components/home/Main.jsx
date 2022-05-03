@@ -6,7 +6,7 @@ import LocallySourced from "./main/LocallySourced";
 
 const Main = () => {
   return (
-    <main className="z-10 -mt-[4.5rem] flex w-full flex-col items-center md:-mt-[6rem]">
+    <main className="z-10 -mt-[4.5rem] flex w-full flex-col items-center md:-mt-[6rem] xl:-mt-[4.375rem]">
       <EnjoyablePlace />
       <LocallySourced />
       <Highlights />

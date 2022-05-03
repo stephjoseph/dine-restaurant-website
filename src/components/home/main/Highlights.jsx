@@ -8,8 +8,8 @@ import tabletChocolateImg from "../../../images/homepage/chocolate-tablet.jpg";
 
 const Highlights = () => {
   return (
-    <section className="mb-20 flex w-full flex-col items-center gap-16 bg-black py-[4.5rem] md:py-[6rem]">
-      <div className="flex w-[20.438rem] flex-col items-center gap-8 text-center md:w-[27.813rem]">
+    <section className="mb-20 flex w-full flex-col items-center gap-16 bg-black py-[4.5rem] md:py-[6rem] xl:-mt-20 xl:flex-row xl:justify-center xl:gap-[7.813rem] xl:pb-[7.5rem] xl:pt-[12.5rem]">
+      <div className="flex w-[20.438rem] flex-col items-center gap-8 text-center md:w-[27.813rem] xl:items-start xl:gap-12 xl:self-start xl:text-left">
         <div className="pointer-events-none">
           <img src={patternDivide} alt="" />
         </div>
@@ -23,7 +23,7 @@ const Highlights = () => {
           </p>
         </div>
       </div>
-      <div className="flex w-[20.438rem] flex-col items-center gap-6 md:w-[35.813rem]">
+      <div className="flex w-[20.438rem] flex-col items-center gap-6 md:w-[35.813rem] xl:mt-[3.438rem] xl:self-end">
         <div className="flex w-full flex-col items-center gap-8 border-b border-solid border-white/[0.1494] pb-6 md:flex-row md:gap-[1.875rem]">
           <div className="md:relative md:h-[6rem] md:w-[10rem]">
             <img className="md:hidden" src={mobileSalmonImg} alt="" />

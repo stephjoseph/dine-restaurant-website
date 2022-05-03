@@ -16,6 +16,18 @@
       background-size: 55.938rem 20rem, 55.938rem 20rem, 55.938rem 20rem;
     }
   }
+
+  @media (min-width: 1440px) {
+    body {
+      background-image: url("./images/patterns/pattern-curve-top-right.svg"),
+        url("./images/patterns/pattern-curve-top-left.svg"),
+        url("./images/patterns/pattern-curve-top-right.svg");
+      background-position: 0rem 66.875rem, 34.063rem 119.438rem,
+        -21.875rem 187rem;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-size: 55.938rem 20rem, 55.938rem 20rem, 55.938rem 20rem;
+    }
+  }
 }
 
 @layer components {
@@ -68,14 +80,43 @@
       background-size: cover;
     }
   }
+
+  @media (min-width: 1440px) {
+    #locally-sourced::after {
+      content: "";
+      background-image: url("./images/patterns/pattern-lines.svg");
+      width: 10rem;
+      height: 4.75rem;
+      position: absolute;
+      left: 66.5rem;
+      top: 17.625rem;
+    }
+
+    #events::after {
+      content: "";
+      background-image: url("./images/patterns/pattern-lines.svg");
+      width: 10rem;
+      height: 4.75rem;
+      position: absolute;
+      left: -2.5rem;
+      top: -2.5rem;
+    }
+
+    #CTA {
+      background-image: url("./images/homepage/ready-bg-desktop.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 }
 
 @layer utilities {
   .selected-tab {
-    @apply relative h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C] after:absolute after:left-[8.75rem] after:block after:h-px after:w-12 after:border-b after:border-solid after:border-[#9E7F66] md:after:top-9 md:after:left-[5.5rem];
+    @apply relative h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C] after:absolute after:left-[8.75rem] after:block after:h-px after:w-12 after:border-b after:border-solid after:border-[#9E7F66] md:after:top-9 md:after:left-[5.5rem] xl:w-[12.5rem] xl:text-left xl:after:top-[0.875rem] xl:after:left-[-7.875rem] xl:after:w-[5.938rem];
   }
 
   .unselected-tab {
-    @apply h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C]/50;
+    @apply h-[1.75rem] w-full text-[0.875rem] font-semibold uppercase leading-[1.75rem] tracking-[2px] text-[#4C4C4C]/50 xl:w-[12.5rem] xl:text-left;
   }
 }
