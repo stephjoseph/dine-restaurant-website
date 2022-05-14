@@ -7,7 +7,7 @@ import logo from "../../images/logo.svg";
 
 const Header = () => {
   return (
-    <header className="flex w-full flex-col items-center bg-[#111111] pb-[9.5rem] md:pb-[13.5rem] xl:relative xl:pb-[12.375rem]">
+    <header className="z-0 flex w-full flex-col items-center bg-[#111111] pb-[9.5rem] md:pb-[13.5rem] xl:relative xl:pb-[12.375rem]">
       <div className="pointer-events-none mb-[0.75rem] h-full w-full md:mb-0 xl:absolute xl:right-0 xl:h-[51.25rem] xl:w-[55.938rem]">
         <img className="h-full w-full md:hidden" src={mobileHeroImg} alt="" />
         <img
