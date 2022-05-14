@@ -6,7 +6,7 @@
 
 @layer base {
   @media (min-width: 768px) {
-    body {
+    #home {
       background-image: url("./images/patterns/pattern-curve-top-right.svg"),
         url("./images/patterns/pattern-curve-top-left.svg"),
         url("./images/patterns/pattern-curve-top-right.svg");
@@ -18,7 +18,7 @@
   }
 
   @media (min-width: 1440px) {
-    body {
+    #home {
       background-image: url("./images/patterns/pattern-curve-top-right.svg"),
         url("./images/patterns/pattern-curve-top-left.svg"),
         url("./images/patterns/pattern-curve-top-right.svg");
@@ -26,6 +26,13 @@
         -21.875rem 187rem;
       background-repeat: no-repeat, no-repeat, no-repeat;
       background-size: 55.938rem 20rem, 55.938rem 20rem, 55.938rem 20rem;
+    }
+
+    #booking {
+      background-image: url("./images/patterns/pattern-curve-bottom-right.svg");
+      background-position: 0rem 37.438rem;
+      background-repeat: no-repeat;
+      background-size: 55.938rem 20rem;
     }
   }
 }
@@ -102,8 +109,26 @@
       top: -2.5rem;
     }
 
+    form::before {
+      content: "";
+      background-image: url("./images/patterns/pattern-lines.svg");
+      width: 10rem;
+      height: 4.75rem;
+      position: absolute;
+      left: -5rem;
+      bottom: -1.438rem;
+      z-index: -1;
+    }
+
     #CTA {
       background-image: url("./images/homepage/ready-bg-desktop.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #booking-header {
+      background-image: url("./images/booking/hero-bg-desktop.jpg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;

@@ -6,8 +6,8 @@ const Main = () => {
   const [numPeople, setNumPeople] = useState(0);
 
   return (
-    <main className="-mt-[8.563rem] mb-[5.375rem] flex w-full flex-col items-center md:mb-[7.5rem] md:-mt-[14.375rem]">
-      <form className="flex w-[20.438rem] flex-col gap-8 bg-white p-8 shadow-[0px_75px_100px_-50px_rgba(56,66,85,0.5032)] md:w-[33.75rem] md:p-12">
+    <main className="-mt-[8.563rem] mb-[5.375rem] flex w-full  flex-col items-center md:mb-[7.5rem] md:-mt-[14.375rem] xl:z-10 xl:mb-[6.313rem] xl:-mt-[21.375rem] xl:w-[69.375rem] xl:items-end">
+      <form className="flex w-[20.438rem] flex-col gap-8 bg-white p-8 shadow-[0px_75px_100px_-50px_rgba(56,66,85,0.5032)] md:w-[33.75rem] md:p-12 xl:relative">
         <input
           type="text"
           placeholder="Name"
