@@ -22,19 +22,73 @@ const Main = () => {
           <p className="text-lg font-normal tracking-[-0.22px] text-[#111111]">
             Pick a date
           </p>
-          <input
-            type="date"
-            className="border border-solid border-[#8E8E8E] p-3 md:w-[18.063rem]"
-          />
+          <div className="flex gap-[0.875rem]">
+            <div className="relative h-[2.813rem] w-[4.563rem] border-b border-solid border-[#8E8E8E]">
+              <input
+                className="absolute left-[0.913rem] h-[1.75rem] w-[2.375rem] text-lg tracking-[-0.22px] placeholder:text-lg placeholder:tracking-[-0.22px] placeholder:text-[#111111]/50 focus:outline-none"
+                type="number"
+                name="month"
+                min="1"
+                max="12"
+                placeholder="MM"
+              />
+            </div>
+            <div className="relative h-[2.813rem] w-[4.563rem] border-b border-solid border-[#8E8E8E]">
+              <input
+                className="absolute left-[0.913rem] h-[1.75rem] w-[2.375rem] text-lg tracking-[-0.22px] placeholder:text-lg placeholder:tracking-[-0.22px] placeholder:text-[#111111]/50 focus:outline-none"
+                type="number"
+                name="day"
+                min="1"
+                max="31"
+                placeholder="DD"
+              />
+            </div>
+            <div className="relative h-[2.813rem] w-[5.5rem] border-b border-solid border-[#8E8E8E]">
+              <input
+                className="absolute left-[0.913rem] h-[1.75rem] w-[3.313rem] text-lg tracking-[-0.22px] placeholder:text-lg placeholder:tracking-[-0.22px] placeholder:text-[#111111]/50 focus:outline-none"
+                type="number"
+                min="2021"
+                max="2022"
+                placeholder="YYYY"
+              />
+            </div>
+          </div>
         </div>
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-[3.25rem]">
           <p className="text-lg font-normal tracking-[-0.22px] text-[#111111]">
             Pick a time
           </p>
-          <input
-            type="time"
-            className="border border-solid border-[#8E8E8E] p-3 md:w-[18.063rem]"
-          />
+          <div className="flex gap-[0.875rem]">
+            <div className="relative h-[2.813rem] w-[4.563rem] border-b border-solid border-[#8E8E8E]">
+              <input
+                className="absolute left-[0.913rem] h-[1.75rem] w-[2.375rem] text-lg tracking-[-0.22px] placeholder:text-lg placeholder:tracking-[-0.22px] placeholder:text-[#111111]/50 focus:outline-none"
+                type="number"
+                name="hour"
+                min="1"
+                max="12"
+                placeholder="09"
+              />
+            </div>
+            <div className="relative h-[2.813rem] w-[4.563rem] border-b border-solid border-[#8E8E8E]">
+              <input
+                className="absolute left-[0.913rem] h-[1.75rem] w-[2.375rem] text-lg tracking-[-0.22px] placeholder:text-lg placeholder:tracking-[-0.22px] placeholder:text-[#111111]/50 focus:outline-none"
+                type="number"
+                name="minute"
+                min="1"
+                max="59"
+                placeholder="00"
+              />
+            </div>
+            <div className="relative h-[2.813rem] w-[5.5rem] border-b border-solid border-[#8E8E8E]">
+              <input
+                className="absolute left-[0.913rem] h-[1.75rem] w-[3.313rem] text-lg tracking-[-0.22px] placeholder:text-lg placeholder:tracking-[-0.22px] placeholder:text-[#111111]/50 focus:outline-none"
+                type="number"
+                min="2021"
+                max="2022"
+                placeholder="YYYY"
+              />
+            </div>
+          </div>
         </div>
         <div className="flex w-full items-center justify-center gap-16 self-center border-b border-solid border-[#8E8E8E] pb-4 md:gap-[7.5rem]">
           <button
