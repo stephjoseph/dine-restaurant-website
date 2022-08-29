@@ -1,3 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .font-h1 {
+    @apply font-['Spartan'] text-[4rem] font-light leading-[4.5rem] tracking-[-0.8px];
+  }
+
+  .font-h2 {
+    @apply font-['Spartan'] text-[2.5rem] font-bold leading-[3.5rem] tracking-[-0.5px];
+  }
+
+  .font-h3-l {
+    @apply font-['Spartan'] text-[1.125rem] font-bold leading-[1.75rem] tracking-[-0.22px];
+  }
+
+  .font-h3-s {
+    @apply font-['Spartan'] text-[0.875rem] font-semibold leading-[1.75rem] tracking-[2px];
+  }
+
+  .font-body-1 {
+    @apply font-['Spartan'] text-[1.125rem] font-normal leading-[1.875rem] tracking-[-0.22px];
+  }
+
+  .font-body-2 {
+    @apply font-['Spartan'] text-[0.938rem] font-normal leading-[1.75rem] tracking-[-0.19px];
+  }
+
+  .btn-dark {
+    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-white bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold leading-[1rem] tracking-[2px] text-white hover:bg-white hover:text-cod-grey;
+  }
+
+  .btn-light {
+    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-cod-grey bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold leading-[1rem] tracking-[2px] text-cod-grey hover:bg-cod-grey hover:text-white;
+  }
+}
