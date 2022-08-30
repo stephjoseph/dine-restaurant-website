@@ -29,10 +29,59 @@
   }
 
   .btn-dark {
-    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-white bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold leading-[1rem] tracking-[2px] text-white hover:bg-white hover:text-cod-grey;
+    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-white bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white hover:bg-white hover:text-cod-gray;
   }
 
   .btn-light {
-    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-cod-grey bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold leading-[1rem] tracking-[2px] text-cod-grey hover:bg-cod-grey hover:text-white;
+    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-cod-gray bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-cod-gray hover:bg-cod-gray hover:text-white;
+  }
+
+  #home header {
+    background: url('/images/homepage/hero-bg-mobile.jpg') no-repeat top center;
+    background-size: cover;
+  }
+
+  #booking header {
+    background: url('/images/booking/hero-bg-mobile.jpg') no-repeat top center;
+    background-size: cover;
+  }
+
+  #CTA {
+    background: url('/images/homepage/ready-bg-mobile.jpg') no-repeat top center;
+    background-size: cover;
+  }
+
+  button.selected {
+    @apply text-cod-gray;
+  }
+
+  button.selected::after {
+    content: '';
+    position: absolute;
+    width: 3rem;
+    height: 1px;
+    background: #9e7f66;
+    bottom: 0;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
   }
 }

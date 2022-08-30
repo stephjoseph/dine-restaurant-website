@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className='flex w-full flex-col items-center bg-cod-grey py-20'>
+    <footer className='flex w-full flex-col items-center bg-cod-gray py-20'>
       <div className='flex w-[87.2%] flex-col items-center gap-10 text-center'>
         <Link href='/'>
           <a>

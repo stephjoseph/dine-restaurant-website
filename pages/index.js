@@ -1,3 +1,11 @@
+import Header from '../components/home/Header';
+import Main from '../components/home/Main';
+
 export default function Home() {
-  return <div id='Home'></div>;
+  return (
+    <div id='home' className='flex w-full flex-col items-center'>
+      <Header />
+      <Main />
+    </div>
+  );
 }
