@@ -84,4 +84,38 @@
     text-indent: 1px;
     text-overflow: '';
   }
+
+  @media (min-width: 768px) {
+    #home header {
+      background: url('/images/homepage/hero-bg-tablet.jpg') no-repeat top
+        center;
+      background-size: cover;
+    }
+
+    #booking header {
+      background: url('/images/booking/hero-bg-tablet.jpg') no-repeat top center;
+      background-size: cover;
+    }
+
+    #features {
+      background-image: url('/images/patterns/pattern-curve-top-right.svg'),
+        url('/images/patterns/pattern-curve-top-left.svg');
+      background-position: -517px 196px, 384px bottom;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 895px 320px, 895px 320px;
+    }
+
+    #events {
+      background-image: url('/images/patterns/pattern-curve-top-right.svg');
+      background-position: -517px 0;
+      background-repeat: no-repeat;
+      background-size: 895px 320px;
+    }
+
+    #CTA {
+      background: url('/images/homepage/ready-bg-tablet.jpg') no-repeat top
+        center;
+      background-size: cover;
+    }
+  }
 }

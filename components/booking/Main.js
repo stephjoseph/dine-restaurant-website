@@ -25,7 +25,7 @@ const Main = () => {
 
   const handleMinus = () => {
     setNumPeople((prevState) => prevState - 1);
-    numPeople <= 0 && setNumPeople(0);
+    numPeople <= 1 && setNumPeople(1);
   };
 
   const handlePlus = () => {
@@ -38,8 +38,8 @@ const Main = () => {
   }, [reservation]);
 
   return (
-    <main className='mb-[5.375rem] -mt-[8.563rem] flex w-full flex-col items-center'>
-      <form className='flex w-[87.2%] flex-col items-center gap-8 bg-white p-8 shadow-[0_100px_75px_-50px_rgba(56,66,85,0.5032)]'>
+    <main className='mb-[5.375rem] -mt-[8.563rem] flex w-full flex-col items-center md:mb-[7.5rem] md:-mt-[14.375rem]'>
+      <form className='flex w-[87.2%] flex-col items-center gap-8 bg-white p-8 shadow-[0_100px_75px_-50px_rgba(56,66,85,0.5032)] md:w-[70.31%] md:p-12'>
         <label className='relative w-full'>
           <span className='pointer-events-none absolute opacity-0'>Name</span>
           <input
@@ -70,9 +70,11 @@ const Main = () => {
             }}
           />
         </label>
-        <div className='flex w-full flex-col items-start gap-2'>
-          <div className='font-body-1 text-cod-gray'>Pick a date</div>
-          <div className='flex w-full items-center justify-between'>
+        <div className='flex w-full flex-col items-start gap-2 md:flex-row md:items-center md:gap-[3.25rem]'>
+          <div className='font-body-1 text-cod-gray md:w-[23.19%]'>
+            Pick a date
+          </div>
+          <div className='flex w-full items-center justify-between md:w-[65.09%] md:gap-4'>
             <label className='relative w-[27.76%]'>
               <span className='pointer-events-none absolute opacity-0'>
                 Month
@@ -141,9 +143,11 @@ const Main = () => {
             </label>
           </div>
         </div>
-        <div className='flex w-full flex-col items-start gap-2'>
-          <div className='font-body-1 text-cod-gray'>Pick a time</div>
-          <div className='relative flex w-full items-center justify-between'>
+        <div className='flex w-full flex-col items-start gap-2 md:flex-row md:items-center md:gap-[3.438rem]'>
+          <div className='font-body-1 text-cod-gray md:w-[22.52%]'>
+            Pick a time
+          </div>
+          <div className='relative flex w-full items-center justify-between md:w-[65.09%] md:gap-4'>
             <label className='relative w-[27.76%]'>
               <span className='pointer-events-none absolute opacity-0'>
                 Hour
@@ -274,31 +278,33 @@ const Main = () => {
         </div>
         <div className='flex w-full items-center justify-between border-b border-solid border-[#8E8E8E] pb-4'>
           <button
-            className='flex h-[1.75rem] w-[2.75rem] items-center justify-center'
+            className='group flex h-[1.75rem] w-[2.75rem] items-center justify-center md:w-14'
             type='button'
             onClick={handleMinus}
           >
-            <Image
-              width={7}
-              height={3}
-              src='/images/icons/icon-minus.svg'
-              alt='minus icon'
-            />
+            <svg xmlns='http://www.w3.org/2000/svg' width='7' height='3'>
+              <path
+                className='group-active:fill-beaver/50'
+                fill='#9E7F66'
+                d='M6.425 2.977V.601H.629v2.376z'
+              />
+            </svg>
           </button>
           <div className='font-body-1 w-[40%] text-center font-bold'>
-            {numPeople} people
+            {numPeople} {numPeople === 1 ? 'person' : 'people'}
           </div>
           <button
-            className='flex h-[1.75rem] w-[2.75rem] items-center justify-center'
+            className='group flex h-[1.75rem] w-[2.75rem] items-center justify-center md:w-14'
             type='button'
             onClick={handlePlus}
           >
-            <Image
-              width={10}
-              height={11}
-              src='/images/icons/icon-plus.svg'
-              alt='plus icon'
-            />
+            <svg xmlns='http://www.w3.org/2000/svg' width='10' height='11'>
+              <path
+                className='group-active:fill-beaver/50'
+                fill='#9E7F66'
+                d='M6.227 10.156V6.727h3.429V4.342H6.227V.913H3.842v3.429H.413v2.385h3.429v3.429z'
+              />
+            </svg>
           </button>
         </div>
         <button
