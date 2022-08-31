@@ -28,6 +28,10 @@
     @apply font-['Spartan'] text-[0.938rem] font-normal leading-[1.75rem] tracking-[2px];
   }
 
+  .font-error {
+    @apply font-['Spartan'] text-[0.625rem] font-medium leading-[0.688rem] tracking-[-0.13px] text-[#B54949];
+  }
+
   .btn-dark {
     @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-white bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white hover:bg-white hover:text-cod-gray active:bg-white active:text-cod-gray;
   }

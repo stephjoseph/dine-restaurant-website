@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 const Main = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [open, setOpen] = useState(false);
   const [numPeople, setNumPeople] = useState(4);
   const [reservation, setReservation] = useState({
@@ -18,6 +25,7 @@ const Main = () => {
       midday: 'AM',
     },
   });
+  const router = useRouter();
 
   const toggleOpen = () => {
     setOpen((prevState) => !prevState);
@@ -33,20 +41,35 @@ const Main = () => {
     numPeople >= 12 && setNumPeople(12);
   };
 
-  useEffect(() => {
+  const onSubmit = (data) => {
+    console.log(data);
     console.log(reservation);
-  }, [reservation]);
+    console.log(numPeople);
+    // if (errors) {
+    //   router.reload(window.location.pathname);
+    // }
+  };
+
+  // useEffect(() => {}, [reservation]);
 
   return (
     <main className='-mt-[8.563rem] flex w-full flex-col items-center pb-[5.375rem] md:-mt-[14.375rem] md:pb-[7.5rem] xl:-mt-[21.375rem] xl:pb-[6.313rem]'>
       <div className='flex w-[87.2%] flex-col items-center md:w-[70.31%] xl:relative xl:w-[77.08%] xl:items-end'>
-        <form className='flex w-full flex-col items-center gap-8 bg-white p-8 shadow-[0_100px_75px_-50px_rgba(56,66,85,0.5032)] md:p-12 xl:z-10 xl:w-[48.65%]'>
+        <form
+          className='flex w-full flex-col items-center gap-8 bg-white p-8 shadow-[0_100px_75px_-50px_rgba(56,66,85,0.5032)] md:p-12 xl:z-10 xl:w-[48.65%]'
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <label className='relative w-full'>
             <span className='pointer-events-none absolute opacity-0'>Name</span>
             <input
               type='text'
-              className='placeholder:font-body-1 font-body-1 w-full border-b border-solid border-[#8E8E8E] px-4 pb-4 text-cod-gray placeholder:text-cod-gray/50 focus:outline-none'
+              className={`${
+                errors.fullName
+                  ? 'border-error text-error caret-error placeholder:text-error/50'
+                  : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
+              } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
               placeholder='Name'
+              {...register('fullName', { required: true })}
               value={reservation.name}
               onChange={(e) => {
                 setReservation((prevState) => ({
@@ -55,13 +78,28 @@ const Main = () => {
                 }));
               }}
             />
+
+            {errors.fullName && (
+              <p className='font-error absolute bottom-[-1.313rem] left-4'>
+                This field is required
+              </p>
+            )}
           </label>
           <label className='relative w-full'>
             <span className='pointer-events-none absolute opacity-0'>Name</span>
             <input
               type='email'
-              className='placeholder:font-body-1 font-body-1 w-full border-b border-solid border-[#8E8E8E] px-4 pb-4 text-cod-gray placeholder:text-cod-gray/50 focus:outline-none'
+              className={`${
+                errors.email
+                  ? 'border-error text-error caret-error placeholder:text-error/50'
+                  : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
+              } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
               placeholder='Email'
+              {...register('email', {
+                required: true,
+                pattern:
+                  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              })}
               value={reservation.email}
               onChange={(e) => {
                 setReservation((prevState) => ({
@@ -70,10 +108,26 @@ const Main = () => {
                 }));
               }}
             />
+            {errors.email && (
+              <p className='font-error absolute bottom-[-1.313rem] left-4'>
+                This field is required
+              </p>
+            )}
           </label>
           <div className='flex w-full flex-col items-start gap-2 md:flex-row md:items-center md:gap-[3.25rem]'>
-            <div className='font-body-1 text-cod-gray md:w-[23.19%]'>
+            <div
+              className={`${
+                errors.month || errors.day || errors.year
+                  ? 'text-error'
+                  : 'text-cod-gray'
+              } font-body-1 relative  md:w-[23.19%]`}
+            >
               Pick a date
+              {(errors.month || errors.day || errors.year) && (
+                <p className='font-error absolute bottom-[-0.75rem] hidden w-[120%] md:block'>
+                  This field is incomplete.
+                </p>
+              )}
             </div>
             <div className='flex w-full items-center justify-between md:w-[65.09%] md:gap-4'>
               <label className='relative w-[27.76%]'>
@@ -82,10 +136,15 @@ const Main = () => {
                 </span>
                 <input
                   type='number'
-                  className='placeholder:font-body-1 font-body-1 w-full border-b border-solid border-[#8E8E8E] px-4 pb-4 text-cod-gray placeholder:text-cod-gray/50 focus:outline-none'
+                  className={`${
+                    errors.month || errors.day || errors.year
+                      ? 'border-error text-error caret-error placeholder:text-error/50'
+                      : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
+                  } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='MM'
                   min='1'
                   max='12'
+                  {...register('month', { required: true })}
                   value={reservation.date.month}
                   onChange={(e) => {
                     setReservation((prevState) => ({
@@ -104,10 +163,15 @@ const Main = () => {
                 </span>
                 <input
                   type='number'
-                  className='placeholder:font-body-1 font-body-1 w-full border-b border-solid border-[#8E8E8E] px-4 pb-4 text-cod-gray placeholder:text-cod-gray/50 focus:outline-none'
+                  className={`${
+                    errors.month || errors.day || errors.year
+                      ? 'border-error text-error caret-error placeholder:text-error/50'
+                      : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
+                  } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='DD'
                   min='1'
                   max='31'
+                  {...register('day', { required: true })}
                   value={reservation.date.day}
                   onChange={(e) => {
                     setReservation((prevState) => ({
@@ -126,10 +190,15 @@ const Main = () => {
                 </span>
                 <input
                   type='number'
-                  className='placeholder:font-body-1 font-body-1 w-full border-b border-solid border-[#8E8E8E] px-4 pb-4 text-cod-gray placeholder:text-cod-gray/50 focus:outline-none'
+                  className={`${
+                    errors.month || errors.day || errors.year
+                      ? 'border-error text-error caret-error placeholder:text-error/50'
+                      : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
+                  } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='YYYY'
-                  min='1'
-                  max='2022'
+                  min='2022'
+                  max='2025'
+                  {...register('year', { required: true })}
                   value={reservation.date.year}
                   onChange={(e) => {
                     setReservation((prevState) => ({
@@ -145,8 +214,17 @@ const Main = () => {
             </div>
           </div>
           <div className='flex w-full flex-col items-start gap-2 md:flex-row md:items-center md:gap-[3.438rem]'>
-            <div className='font-body-1 text-cod-gray md:w-[22.52%]'>
+            <div
+              className={`${
+                errors.hour || errors.minute ? 'text-error' : 'text-cod-gray'
+              } font-body-1 relative  md:w-[23.19%]`}
+            >
               Pick a time
+              {(errors.hour || errors.minute) && (
+                <p className='font-error absolute bottom-[-0.75rem] hidden w-[120%] md:block'>
+                  This field is incomplete.
+                </p>
+              )}
             </div>
             <div className='relative flex w-full items-center justify-between md:w-[65.09%] md:gap-4'>
               <label className='relative w-[27.76%]'>
@@ -155,10 +233,15 @@ const Main = () => {
                 </span>
                 <input
                   type='number'
-                  className='placeholder:font-body-1 font-body-1 w-full border-b border-solid border-[#8E8E8E] px-4 pb-4 text-cod-gray placeholder:text-cod-gray/50 focus:outline-none'
+                  className={`${
+                    errors.hour || errors.minute
+                      ? 'border-error text-error caret-error placeholder:text-error/50'
+                      : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
+                  } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='09'
                   min='1'
                   max='12'
+                  {...register('hour', { required: true })}
                   value={reservation.time.hour}
                   onChange={(e) => {
                     setReservation((prevState) => ({
@@ -177,10 +260,15 @@ const Main = () => {
                 </span>
                 <input
                   type='number'
-                  className='placeholder:font-body-1 font-body-1 w-full border-b border-solid border-[#8E8E8E] px-4 pb-4 text-cod-gray placeholder:text-cod-gray/50 focus:outline-none'
+                  className={`${
+                    errors.hour || errors.minute
+                      ? 'border-error text-error caret-error placeholder:text-error/50'
+                      : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
+                  } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='00'
-                  min='1'
+                  min='0'
                   max='59'
+                  {...register('minute', { required: true })}
                   value={reservation.time.minute}
                   onChange={(e) => {
                     setReservation((prevState) => ({

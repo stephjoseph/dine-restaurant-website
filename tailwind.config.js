@@ -12,6 +12,7 @@ module.exports = {
         mirage: '#17192b',
         'ebony-clay': '#242b37',
         'shuttle-gray': '#5c6779',
+        error: '#B54949',
       },
     },
   },
