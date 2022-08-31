@@ -29,11 +29,11 @@
   }
 
   .btn-dark {
-    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-white bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white hover:bg-white hover:text-cod-gray;
+    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-white bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-white hover:bg-white hover:text-cod-gray active:bg-white active:text-cod-gray;
   }
 
   .btn-light {
-    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-cod-gray bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-cod-gray hover:bg-cod-gray hover:text-white;
+    @apply flex h-16 w-[10.625rem] items-center justify-center border border-solid border-cod-gray bg-transparent py-6 px-12 font-['Spartan'] text-[0.875rem] font-semibold uppercase leading-[1rem] tracking-[2px] text-cod-gray hover:bg-cod-gray hover:text-white active:bg-cod-gray active:text-white;
   }
 
   #home header {
@@ -116,6 +116,48 @@
       background: url('/images/homepage/ready-bg-tablet.jpg') no-repeat top
         center;
       background-size: cover;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    #home header {
+      background: url('/images/homepage/hero-bg-desktop.jpg') no-repeat top
+        center;
+      background-size: cover;
+    }
+
+    #booking header {
+      background: url('/images/booking/hero-bg-desktop.jpg') no-repeat top
+        center;
+      background-size: cover;
+    }
+
+    #booking main {
+      background-image: url('/images/patterns/pattern-curve-bottom-right.svg');
+      background-position: 0px 342px;
+      background-repeat: no-repeat;
+      background-size: 895px 320px;
+    }
+
+    #features {
+      background-position: 0px 320px, right 1161px;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 895px 320px, 895px 320px;
+    }
+
+    #events {
+      background-position: -350px 0;
+    }
+    #CTA {
+      background: url('/images/homepage/ready-bg-desktop.jpg') no-repeat top
+        center;
+      background-size: cover;
+    }
+
+    button.selected::after {
+      width: 5.938rem;
+      top: 14px;
+      left: -7.813rem;
     }
   }
 }

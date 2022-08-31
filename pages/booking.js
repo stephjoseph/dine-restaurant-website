@@ -8,7 +8,10 @@ const Booking = () => {
       <Head>
         <title>Dine Restaurant | Booking</title>
       </Head>
-      <div id='booking' className='flex w-full flex-col items-center'>
+      <div
+        id='booking'
+        className='flex w-full max-w-[1920px] flex-col items-center'
+      >
         <Header />
         <Main />
       </div>
