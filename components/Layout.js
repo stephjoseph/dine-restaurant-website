@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
         <title>Dine Restaurant</title>
         <link rel='icon' type='image/png' href='/images/favicon-32x32.png' />
       </Head>
-      <div className='grid w-full place-items-center'>
+      <div className='mx-auto grid w-full max-w-[1920px] place-items-center'>
         {children}
         <Footer />
       </div>

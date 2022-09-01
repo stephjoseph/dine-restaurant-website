@@ -1,6 +1,50 @@
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap/dist/gsap';
 
 const Highlights = () => {
+  const headingRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      headingRef.current,
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: 'top bottom',
+          toggleActions: 'play none none none',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'easeIn',
+      }
+    );
+
+    gsap.fromTo(
+      textRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: 'top bottom',
+          toggleActions: 'play none none none',
+        },
+
+        opacity: 1,
+        duration: 1,
+        ease: 'easeIn',
+      }
+    );
+  }, []);
+
   return (
     <section className='flex w-full flex-col items-center bg-cod-gray py-[4.5rem] text-white md:py-24 xl:pb-[7.5rem] xl:pt-[12.5rem]'>
       <div className='flex w-[87.2%] flex-col items-center gap-16 md:w-[74.60%] md:gap-14 xl:w-[77.08%] xl:flex-row xl:items-start xl:gap-[7.813rem]'>
@@ -12,10 +56,16 @@ const Highlights = () => {
             alt=''
           />
           <div className='flex flex-col items-center gap-4 text-center xl:text-left'>
-            <h2 className='font-h2 md:font-h2 text-[2rem] leading-[2.5rem] tracking-[-0.4px]'>
+            <h2
+              ref={headingRef}
+              className='font-h2 md:font-h2 text-[2rem] leading-[2.5rem] tracking-[-0.4px]'
+            >
               A few highlights from our menu
             </h2>
-            <p className='font-body-1 md:font-body-1 text-[0.938rem] leading-[1.563rem] tracking-[-0.19px]'>
+            <p
+              ref={textRef}
+              className='font-body-1 md:font-body-1 text-[0.938rem] leading-[1.563rem] tracking-[-0.19px]'
+            >
               Our relaxed surroundings make dining with us a great experience
               for everyone. We can even arrange a tour of the farm before your
               meal.

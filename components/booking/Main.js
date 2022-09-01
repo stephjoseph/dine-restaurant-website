@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { gsap } from 'gsap/dist/gsap';
 
 const Main = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    clearErrors,
   } = useForm();
   const [open, setOpen] = useState(false);
   const [numPeople, setNumPeople] = useState(4);
@@ -27,6 +27,7 @@ const Main = () => {
     },
   });
   const router = useRouter();
+  const formRef = useRef(null);
 
   const toggleOpen = () => {
     setOpen((prevState) => !prevState);
@@ -42,21 +43,27 @@ const Main = () => {
     numPeople >= 12 && setNumPeople(12);
   };
 
-  const onSubmit = (data, e) => {
-    console.log(e);
+  const onSubmit = () => {
     if (errors) {
       router.reload(window.location.pathname);
     }
   };
 
-  const onError = (errors) => {};
+  useEffect(() => {
+    gsap.fromTo(
+      formRef.current,
+      { opacity: 0, x: 50 },
+      { opacity: 1, x: 0, duration: 1.3, ease: 'easeIn', delay: 0.3 }
+    );
+  }, []);
 
   return (
     <main className='-mt-[8.563rem] flex w-full flex-col items-center pb-[5.375rem] md:-mt-[14.375rem] md:pb-[7.5rem] xl:-mt-[21.375rem] xl:pb-[6.313rem]'>
       <div className='flex w-[87.2%] flex-col items-center md:w-[70.31%] xl:relative xl:w-[77.08%] xl:items-end'>
         <form
+          ref={formRef}
           className='flex w-full flex-col items-center gap-8 bg-white p-8 shadow-[0_100px_75px_-50px_rgba(56,66,85,0.5032)] md:p-12 xl:z-10 xl:w-[48.65%]'
-          onSubmit={handleSubmit(onSubmit, onError)}
+          onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
           <label className='relative w-full'>
@@ -80,7 +87,7 @@ const Main = () => {
             />
 
             {errors.fullName && (
-              <p className='font-error absolute bottom-[-1.313rem] left-4'>
+              <p className='font-error absolute bottom-[-1.313rem] left-4 hidden md:block'>
                 This field is required
               </p>
             )}
@@ -109,7 +116,7 @@ const Main = () => {
               }}
             />
             {errors.email && (
-              <p className='font-error absolute bottom-[-1.313rem] left-4'>
+              <p className='font-error absolute bottom-[-1.313rem] left-4 hidden md:block'>
                 {errors.email.type === 'required' && 'This field is required'}
                 {errors.email.type === 'pattern' &&
                   'Please use a valid email address'}

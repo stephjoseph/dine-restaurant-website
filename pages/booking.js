@@ -1,8 +1,11 @@
 import Head from 'next/head';
 import Header from '../components/booking/Header';
 import Main from '../components/booking/Main';
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const Booking = () => {
+  gsap.registerPlugin(ScrollTrigger);
   return (
     <>
       <Head>
