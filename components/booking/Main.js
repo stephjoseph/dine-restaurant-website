@@ -8,6 +8,7 @@ const Main = () => {
     register,
     handleSubmit,
     formState: { errors },
+    clearErrors,
   } = useForm();
   const [open, setOpen] = useState(false);
   const [numPeople, setNumPeople] = useState(4);
@@ -41,23 +42,27 @@ const Main = () => {
     numPeople >= 12 && setNumPeople(12);
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log(reservation);
-    console.log(numPeople);
-    // if (errors) {
-    //   router.reload(window.location.pathname);
-    // }
+  const onSubmit = (data, e) => {
+    console.log(e);
+    if (errors) {
+      alert(
+        `Hello ${reservation.name}, Your reservation for ${numPeople} person/s is booked on ${reservation.date.month}/${reservation.date.day}/${reservation.date.year} at ${reservation.time.hour}:${reservation.time.minute} ${reservation.time.midday}. Thank you!`
+      );
+      router.reload(window.location.pathname);
+    }
   };
 
-  // useEffect(() => {}, [reservation]);
+  const onError = (errors) => {
+    // console.log(errors.hour.type);
+  };
 
   return (
     <main className='-mt-[8.563rem] flex w-full flex-col items-center pb-[5.375rem] md:-mt-[14.375rem] md:pb-[7.5rem] xl:-mt-[21.375rem] xl:pb-[6.313rem]'>
       <div className='flex w-[87.2%] flex-col items-center md:w-[70.31%] xl:relative xl:w-[77.08%] xl:items-end'>
         <form
           className='flex w-full flex-col items-center gap-8 bg-white p-8 shadow-[0_100px_75px_-50px_rgba(56,66,85,0.5032)] md:p-12 xl:z-10 xl:w-[48.65%]'
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit, onError)}
+          noValidate
         >
           <label className='relative w-full'>
             <span className='pointer-events-none absolute opacity-0'>Name</span>
@@ -110,7 +115,9 @@ const Main = () => {
             />
             {errors.email && (
               <p className='font-error absolute bottom-[-1.313rem] left-4'>
-                This field is required
+                {errors.email.type === 'required' && 'This field is required'}
+                {errors.email.type === 'pattern' &&
+                  'Please use a valid email address'}
               </p>
             )}
           </label>
@@ -125,7 +132,11 @@ const Main = () => {
               Pick a date
               {(errors.month || errors.day || errors.year) && (
                 <p className='font-error absolute bottom-[-0.75rem] hidden w-[120%] md:block'>
-                  This field is incomplete.
+                  {(errors.month && errors.month.type === 'pattern') ||
+                  (errors.day && errors.day.type === 'pattern') ||
+                  (errors.year && errors.year.type === 'pattern')
+                    ? 'Enter valid date'
+                    : 'This field is incomplete'}
                 </p>
               )}
             </div>
@@ -135,16 +146,17 @@ const Main = () => {
                   Month
                 </span>
                 <input
-                  type='number'
+                  type='text'
                   className={`${
                     errors.month || errors.day || errors.year
                       ? 'border-error text-error caret-error placeholder:text-error/50'
                       : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
                   } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='MM'
-                  min='1'
-                  max='12'
-                  {...register('month', { required: true })}
+                  {...register('month', {
+                    required: true,
+                    pattern: /(^0?[1-9]$)|(^1[0-2]$)/,
+                  })}
                   value={reservation.date.month}
                   onChange={(e) => {
                     setReservation((prevState) => ({
@@ -162,16 +174,17 @@ const Main = () => {
                   Day
                 </span>
                 <input
-                  type='number'
+                  type='text'
                   className={`${
                     errors.month || errors.day || errors.year
                       ? 'border-error text-error caret-error placeholder:text-error/50'
                       : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
                   } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='DD'
-                  min='1'
-                  max='31'
-                  {...register('day', { required: true })}
+                  {...register('day', {
+                    required: true,
+                    pattern: /^(0?[1-9]|[12][0-9]|3[01])$/,
+                  })}
                   value={reservation.date.day}
                   onChange={(e) => {
                     setReservation((prevState) => ({
@@ -189,16 +202,17 @@ const Main = () => {
                   Year
                 </span>
                 <input
-                  type='number'
+                  type='text'
                   className={`${
                     errors.month || errors.day || errors.year
                       ? 'border-error text-error caret-error placeholder:text-error/50'
                       : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
                   } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='YYYY'
-                  min='2022'
-                  max='2025'
-                  {...register('year', { required: true })}
+                  {...register('year', {
+                    required: true,
+                    pattern: /^20[2-9]{2}$/gm,
+                  })}
                   value={reservation.date.year}
                   onChange={(e) => {
                     setReservation((prevState) => ({
@@ -222,7 +236,10 @@ const Main = () => {
               Pick a time
               {(errors.hour || errors.minute) && (
                 <p className='font-error absolute bottom-[-0.75rem] hidden w-[120%] md:block'>
-                  This field is incomplete.
+                  {(errors.hour && errors.hour.type === 'pattern') ||
+                  (errors.minute && errors.minute.type === 'pattern')
+                    ? 'Enter valid time'
+                    : 'This field is incomplete'}
                 </p>
               )}
             </div>
@@ -232,20 +249,22 @@ const Main = () => {
                   Hour
                 </span>
                 <input
-                  type='number'
+                  type='text'
                   className={`${
                     errors.hour || errors.minute
                       ? 'border-error text-error caret-error placeholder:text-error/50'
                       : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
                   } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='09'
-                  min='1'
-                  max='12'
-                  {...register('hour', { required: true })}
+                  {...register('hour', {
+                    required: true,
+                    pattern: /(^0?[1-9]$)|(^1[0-2]$)/,
+                  })}
                   value={reservation.time.hour}
                   onChange={(e) => {
                     setReservation((prevState) => ({
                       ...prevState,
+
                       time: {
                         ...prevState.time,
                         hour: e.target.value,
@@ -259,16 +278,17 @@ const Main = () => {
                   Minutes
                 </span>
                 <input
-                  type='number'
+                  type='text'
                   className={`${
                     errors.hour || errors.minute
                       ? 'border-error text-error caret-error placeholder:text-error/50'
                       : 'border-[#8E8E8E] text-cod-gray caret-inherit placeholder:text-cod-gray/50'
                   } placeholder:font-body-1 font-body-1 w-full border-b border-solid  px-4 pb-4  focus:outline-none`}
                   placeholder='00'
-                  min='0'
-                  max='59'
-                  {...register('minute', { required: true })}
+                  {...register('minute', {
+                    required: true,
+                    pattern: /(^0?[0-5]$)|(^[0-5][0-9]$)/,
+                  })}
                   value={reservation.time.minute}
                   onChange={(e) => {
                     setReservation((prevState) => ({
