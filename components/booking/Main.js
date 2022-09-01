@@ -45,16 +45,11 @@ const Main = () => {
   const onSubmit = (data, e) => {
     console.log(e);
     if (errors) {
-      alert(
-        `Hello ${reservation.name}, Your reservation for ${numPeople} person/s is booked on ${reservation.date.month}/${reservation.date.day}/${reservation.date.year} at ${reservation.time.hour}:${reservation.time.minute} ${reservation.time.midday}. Thank you!`
-      );
       router.reload(window.location.pathname);
     }
   };
 
-  const onError = (errors) => {
-    // console.log(errors.hour.type);
-  };
+  const onError = (errors) => {};
 
   return (
     <main className='-mt-[8.563rem] flex w-full flex-col items-center pb-[5.375rem] md:-mt-[14.375rem] md:pb-[7.5rem] xl:-mt-[21.375rem] xl:pb-[6.313rem]'>
