@@ -8,17 +8,16 @@ const Header = () => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      headingRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.3, ease: 'easeIn' }
-    );
-
-    gsap.fromTo(
-      textRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.3, ease: 'easeIn' }
-    );
+    // gsap.fromTo(
+    //   headingRef.current,
+    //   { opacity: 0, y: 50 },
+    //   { opacity: 1, y: 0, duration: 1.3, ease: 'easeIn' }
+    // );
+    // gsap.fromTo(
+    //   textRef.current,
+    //   { opacity: 0 },
+    //   { opacity: 1, duration: 1.3, ease: 'easeIn' }
+    // );
   }, []);
 
   return (

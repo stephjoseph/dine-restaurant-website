@@ -50,11 +50,11 @@ const Main = () => {
   };
 
   useEffect(() => {
-    gsap.fromTo(
-      formRef.current,
-      { opacity: 0, x: 50 },
-      { opacity: 1, x: 0, duration: 1.3, ease: 'easeIn', delay: 0.3 }
-    );
+    // gsap.fromTo(
+    //   formRef.current,
+    //   { opacity: 0, x: 50 },
+    //   { opacity: 1, x: 0, duration: 1.3, ease: 'easeIn', delay: 0.3 }
+    // );
   }, []);
 
   return (

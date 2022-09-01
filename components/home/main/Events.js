@@ -44,61 +44,56 @@ const Events = () => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    imgRef.current.forEach((ref) => {
-      gsap.fromTo(
-        ref,
-        {
-          opacity: 0,
-        },
-        {
-          scrollTrigger: {
-            trigger: ref,
-            start: 'top bottom',
-            toggleActions: 'play none none none',
-          },
-
-          opacity: 1,
-          duration: 1.5,
-          ease: 'easeIn',
-        }
-      );
-    });
-
-    gsap.fromTo(
-      headingRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: imgRef.current,
-          start: 'top bottom',
-          toggleActions: 'play none none none',
-        },
-
-        opacity: 1,
-        duration: 1,
-        ease: 'easeIn',
-      }
-    );
-
-    gsap.fromTo(
-      textRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: imgRef.current,
-          start: 'top bottom',
-          toggleActions: 'play none none none',
-        },
-
-        opacity: 1,
-        duration: 1,
-        ease: 'easeIn',
-      }
-    );
+    // imgRef.current.forEach((ref) => {
+    //   gsap.fromTo(
+    //     ref,
+    //     {
+    //       opacity: 0,
+    //     },
+    //     {
+    //       scrollTrigger: {
+    //         trigger: ref,
+    //         start: 'top bottom',
+    //         toggleActions: 'play none none none',
+    //       },
+    //       opacity: 1,
+    //       duration: 1.5,
+    //       ease: 'easeIn',
+    //     }
+    //   );
+    // });
+    // gsap.fromTo(
+    //   headingRef.current,
+    //   {
+    //     opacity: 0,
+    //   },
+    //   {
+    //     scrollTrigger: {
+    //       trigger: imgRef.current,
+    //       start: 'top bottom',
+    //       toggleActions: 'play none none none',
+    //     },
+    //     opacity: 1,
+    //     duration: 1,
+    //     ease: 'easeIn',
+    //   }
+    // );
+    // gsap.fromTo(
+    //   textRef.current,
+    //   {
+    //     opacity: 0,
+    //   },
+    //   {
+    //     scrollTrigger: {
+    //       trigger: imgRef.current,
+    //       start: 'top bottom',
+    //       toggleActions: 'play none none none',
+    //     },
+    //     opacity: 1,
+    //     duration: 1,
+    //     ease: 'easeIn',
+    //   }
+    // );
   }, [selected]);
 
   return (

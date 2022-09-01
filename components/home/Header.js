@@ -9,23 +9,21 @@ const Header = () => {
   const btnRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      headingRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.3, ease: 'easeIn' }
-    );
-
-    gsap.fromTo(
-      textRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.3, ease: 'easeIn' }
-    );
-
-    gsap.fromTo(
-      btnRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.3, ease: 'easeIn', delay: 0.5 }
-    );
+    // gsap.fromTo(
+    //   headingRef.current,
+    //   { opacity: 0, y: 50 },
+    //   { opacity: 1, y: 0, duration: 1.3, ease: 'easeIn' }
+    // );
+    // gsap.fromTo(
+    //   textRef.current,
+    //   { opacity: 0 },
+    //   { opacity: 1, duration: 1.3, ease: 'easeIn' }
+    // );
+    // gsap.fromTo(
+    //   btnRef.current,
+    //   { opacity: 0 },
+    //   { opacity: 1, duration: 1.3, ease: 'easeIn', delay: 0.5 }
+    // );
   }, []);
 
   return (

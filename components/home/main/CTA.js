@@ -6,24 +6,24 @@ const CTA = () => {
   const headingRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      headingRef.current,
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: 'top bottom',
-          toggleActions: 'play none none none',
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'easeIn',
-      }
-    );
+    // gsap.fromTo(
+    //   headingRef.current,
+    //   {
+    //     y: 50,
+    //     opacity: 0,
+    //   },
+    //   {
+    //     scrollTrigger: {
+    //       trigger: headingRef.current,
+    //       start: 'top bottom',
+    //       toggleActions: 'play none none none',
+    //     },
+    //     y: 0,
+    //     opacity: 1,
+    //     duration: 1,
+    //     ease: 'easeIn',
+    //   }
+    // );
   }, []);
 
   return (
