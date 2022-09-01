@@ -9,80 +9,84 @@ const Features = () => {
   const textRef = useRef([]);
 
   useEffect(() => {
-    // gsap.fromTo(
-    //   farmImgRef.current,
-    //   {
-    //     x: -50,
-    //     opacity: 0,
-    //   },
-    //   {
-    //     scrollTrigger: {
-    //       trigger: farmImgRef.current,
-    //       start: 'top bottom',
-    //       toggleActions: 'play none none none',
-    //     },
-    //     x: 0,
-    //     opacity: 1,
-    //     duration: 1,
-    //     ease: 'easeIn',
-    //   }
-    // );
-    // gsap.fromTo(
-    //   mealImgRef.current,
-    //   {
-    //     x: 50,
-    //     opacity: 0,
-    //   },
-    //   {
-    //     scrollTrigger: {
-    //       trigger: mealImgRef.current,
-    //       start: 'top bottom',
-    //       toggleActions: 'play none none none',
-    //     },
-    //     x: 0,
-    //     opacity: 1,
-    //     duration: 1,
-    //     ease: 'easeIn',
-    //   }
-    // );
-    // headingRef.current.forEach((ref) => {
-    //   gsap.fromTo(
-    //     ref,
-    //     {
-    //       y: 50,
-    //       opacity: 0,
-    //     },
-    //     {
-    //       scrollTrigger: {
-    //         trigger: ref,
-    //         start: 'top bottom',
-    //         toggleActions: 'play none none none',
-    //       },
-    //       y: 0,
-    //       opacity: 1,
-    //       duration: 1,
-    //       ease: 'easeIn',
-    //     }
-    //   );
-    // });
-    // textRef.current.forEach((ref) => {
-    //   gsap.fromTo(
-    //     ref,
-    //     {
-    //       opacity: 0,
-    //     },
-    //     {
-    //       scrollTrigger: {
-    //         trigger: ref,
-    //         start: 'top bottom',
-    //         toggleActions: 'play none none none',
-    //       },
-    //       opacity: 1,
-    //       duration: 1,
-    //       ease: 'easeIn',
-    //     }
-    //   );
-    // });
+    gsap.fromTo(
+      farmImgRef.current,
+      {
+        x: -50,
+        opacity: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: farmImgRef.current,
+          start: 'top bottom',
+          toggleActions: 'play none none none',
+        },
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'easeIn',
+      }
+    );
+
+    gsap.fromTo(
+      mealImgRef.current,
+      {
+        x: 50,
+        opacity: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: mealImgRef.current,
+          start: 'top bottom',
+          toggleActions: 'play none none none',
+        },
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'easeIn',
+      }
+    );
+
+    headingRef.current.forEach((ref) => {
+      gsap.fromTo(
+        ref,
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          scrollTrigger: {
+            trigger: ref,
+            start: 'top bottom',
+            toggleActions: 'play none none none',
+          },
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'easeIn',
+        }
+      );
+    });
+
+    textRef.current.forEach((ref) => {
+      gsap.fromTo(
+        ref,
+        {
+          opacity: 0,
+        },
+        {
+          scrollTrigger: {
+            trigger: ref,
+            start: 'top bottom',
+            toggleActions: 'play none none none',
+          },
+
+          opacity: 1,
+          duration: 1,
+          ease: 'easeIn',
+        }
+      );
+    });
   }, []);
 
   return (
